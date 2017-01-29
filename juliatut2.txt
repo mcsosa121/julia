@@ -1,0 +1,108 @@
+Julia Tutorial by Mike Sosa
+Part 2: Functions, If/Else and More!
+
+functions take on syntax like other lanuages
+function name(arg1, arg2, ..... arg y)
+  execution block
+end
+
+will begin with function, then the name of the function, then the input
+arguments, then the execution block where you carry out what you want
+and then an end declaration
+
+ex. funcition add(x,y)
+  x+y
+end
+you can also specify the type you want the inputs to be
+ex.
+  function add(x::type)
+    println(x)
+  end
+can call with add(5,6) which will evaluate to 11
+ex. x = add(5,6)
+    x is 11
+
+ex2. function add(x,y)
+        return x + y
+      end
+will return the value of x + y
+
+Returning multiple values
+ex. function addmult(x,y)
+      x+y, x*y
+    end
+
+ex. x = addmult(5,6)
+    x will evaluate to (11,30)
+
+operators as functions
+Hint: They are
+so you can do +(x,y,z) instead of x+y+z
+or *(4,5)
+
+you can also assign these to variable names
+name=operator is the syntax
+ex. addd=+
+    add(2,3) evaluates to 5
+
+functions are full class variables
+you can assign other variables to functions
+ex. g = f   # from before
+    can use g(x,y)
+
+Map function
+Similar to ocaml. Can apply function to all elements in a list
+ex. map(function(x)
+      x*2
+      end,
+      [1,2,3]
+    )
+    returns 1 4 6
+or can use syntax x -> x
+ex. map(x -> x^3, [1,2,3])
+  returns 2 4 6
+
+Optional Arguments
+can declare arguments that can be overwritten later
+ex. function add2(r, s=6)
+      r+s
+    end
+if s is specified it is overwritten, otherwise the default value of 6 is
+used
+ex. add2(5,4) evaluates to 9
+ex. add2(5) evaluates to 11
+
+Keyword agrs
+
+need to define your variables
+ex. function div(;x=10, y=5)
+      x/y
+    end
+can call div(x=20,y=10) which evaluates to 2.0
+order also doesn't matter div(y=10, x=20) also evaluates to 2.0
+
+
+If/Else statements
+Just like python
+
+if condition
+  do something
+elseif condition2
+  do something else
+  .
+  .
+  .
+else
+  do something other
+end
+
+ex. x = 5
+    if x < 20
+      print "hi"
+    end
+
+Ternary operators
+will evaluate condition and return either the first or second option
+ex. x = 5
+    print(x<0?"negative":"positive")
+    will evaluate to posiitve

@@ -1,0 +1,183 @@
+Julia Tut Part 3
+For/While Loops and other expressions
+
+Iterating
+FOR Loops
+through an array
+for i in array
+  do something
+end
+
+ex. for y in [a,b,c]
+      y = y * 2
+      println(y)
+    end
+
+iterating over range
+
+for j=start:end
+  println(j)
+end
+
+ex. for j=1:25
+      println(j)
+    end
+
+WHILE Loops
+i = y
+while condition
+  do something
+  modify i
+end
+
+ex. i = 1
+    while i<=5
+      println(i)
+      i+=1
+    end
+
+Continue
+can be used with conditions to move through the loop
+ex.
+for i in 1:5
+  if i%2 == 0
+    continue
+  end
+  println(i*i)
+end
+will print 1, 9 and 25 because it skips 2 and 4
+
+Break
+Similar, will break when meets condition
+for i in 1:5
+  if i==4
+    break
+  end
+  println(i*i)
+end
+will print 1, 4 and 9, stopping when it gets to 4
+
+Compound Expressions
+BEGIN
+Can be used to describe a block
+ex.
+area = begin
+  base = 10
+  height = 5
+  1/2*(base*height)
+end
+will evaluate to 25.0
+
+can also write the same methods using ";"
+ex.
+area = base = 10; height = 5; 1/2*(base*height)
+
+
+Tasks
+Defined in producer consumer problems
+One complex procedure is generating values and another is consuming them
+Consumers cant just call producers because they might not be ready
+So we use taks
+produce() -> returns a value
+consume() -> Once a producer is wrapped in a task, consume can be
+            called on that obj
+
+ex.
+function producer()
+  produce("start")
+  for n=1:4
+    produce(2n)
+  end
+  produce("stop")
+end;
+
+p = Task(producer)
+#can call repreatedly
+consumer(p) -> "start"
+consumer(p) -> 2
+.....
+cosume(p) -> "stop"
+consume(p) -> ()
+
+ex. fibonacci
+
+
+function fib()
+  a = 0
+  produce(a)
+  b = 1
+  produce(b)
+  while true
+    a,b = b, a+b
+    produce(b)
+  end
+end
+
+p = Task(producer)
+
+consumer(p) -> 0
+consumer(p) -> 1
+.....
+cosume(p) -> "inf"
+
+Can also run stuff
+ex.
+for i in Task(fib)
+  prinln(i)
+  if i > 15
+    break
+  end
+end
+
+will evaluate to
+0
+1
+1
+....
+21
+
+Can also have more details
+function fib(msg)
+  println(msg)
+  a = 0
+  produce(a)
+  b = 1
+  produce(b)
+  while true
+    a,b = b, a+b
+    produce(b)
+  end
+end
+
+p=@task fib("hollo World")
+when consumed will print out
+"Hello World"
+0
+1
+1
+....
+inf
+
+Generators can use less memory and are useful for quick processing
+
+EXCEPTIONS
+You don't always want your code to pass through or throw standard errors
+So you can use try catch
+
+try
+  attempt something
+catch
+  do something
+end
+
+ex.
+try
+  "hi" + 345
+catch
+  println("W O W")
+end
+
+will print "W O W" because an error is raised
+
+That marks the end of the youtube tutorials.
+Everything I add from here will be from diffrent sources. 

@@ -1,0 +1,78 @@
+From Juan Kloppers Tutorial
+To learn more about collections and data structures
+refer to the Julia Documentation
+at http://docs.julialang.org/en/stable/stdlib/collections/
+
+Arrays
+define arrays using
+name = [el1, el2, .... ellast]
+ex. dog = [1,2,3,4]
+can access using name[index] (index starts from 1 not 0)
+
+rand(x) - creates an array with x amount of random numbers
+fill(x,y) - creates an array with y amount of element x
+repmat(arr,y) - creates a larger array with y copies or arr
+Julia provides many more options to populate arrays. You cna look at the
+documentation or watch this video
+https://www.youtube.com/watch?v=p7JSWCxbJd0&list=PLsu0TcgLDUiIznEhN165XmykqyLgzwY0Y&index=38
+for more.
+
+Julia has a number of dequeue
+To add to the end of an array
+  push!(arr, element)
+To remove last item and return it
+  pop!(arr)
+To insert 1+ items at beginnning
+  unshift!(arr, el1, el2, ...., ellast)
+To remove first item and return it
+  shift!(arr)
+To insert item at given index
+  insert!(arr, index, element)
+To delete item at a certian index
+  deleteat!(arr, index::Int)
+To delete multiple items at sorted and unique indices
+  deleteat!(arr, ind1:ind2:...:indlast)
+    where ind1 < ind2 < ind3 < ..... < indlast
+    When an ind is deleted items are shifted to fill the
+    gap BEFORE moving on to delete the next index
+There are many more which you can see in the julia library
+
+Array of Arrays
+Can define an array of arrays
+(Array{type, number})[]
+ex. a6 = (Array{Int64, 1})[] (an array of array of ints)
+ex. push!(a6, [1,2,3])
+
+MultiDimensional Arrays
+Can read up on these at
+http://julia.readthedocs.io/en/latest/manual/arrays/
+or at https://juliabyexample.helpmanual.io/
+
+Matrics!
+https://stanford.edu/class/ee103/slides/julia_matrices_slides.pdf
+and from Kloppers youtube video
+
+In Julia a one-dimnesional array is a vector
+A two dimensional array is a matrix.
+ex. Array{Int64,1} == Vector{Int64} returns true
+ex. Array{Int64, 2} == Matrix{Int64} returns true
+
+Matrices are mxn in dimension
+Matrices are creating using the following notations
+name = [el11 el12 ... elm1n; el21 ... el2n; ..... ; elm1 elm2 ... elmn   ]
+ex. [2 -4 8.2; -5.5 3.5 63] creates the 2 × 3 matrix
+A = [ 2   −4   8.2 ]
+    [ −5.5  3.5 63  ]
+Size(x) returns the dimensions of the matrix x
+Elements are accessed using indexing
+a[i,j] returns the i,jth element
+You can also use ranges
+A[start:end, start2, end2] is a sunmatrix or slice of the matrix
+":" selects all elements along that dimension
+ex, A[:,3] is third column
+ex, A[2,:] is the second row
+
+Block Matrices
+x = [A B]
+    [C D]
+where A,B,C,D

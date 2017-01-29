@@ -1,4 +1,10 @@
-julia tutorial
+julia tutorial by Mike Sosa
+*Thanks to youtube user codebasics whose videos I derived these notes from
+For another large amount of tutorials look at
+https://www.youtube.com/playlist?list=PLsu0TcgLDUiIznEhN165XmykqyLgzwY0Y
+Part 1: Basic commands and syntax
+
+use "#" to begin a comment
 
 addition is +
 subraction is -
@@ -125,3 +131,15 @@ ex 3. e = [1,2,3] * so e is an array containing 1, 2, and 3
 Searching within strings
 search ("AB...Z", 'C') -> 3 since 'C' is the third char in the string
 can also search for substrings
+ex. search("love", "ve")
+    -> 3:4
+ex2. search("love", 'k')
+    - > 0 since it doesn't contain k
+
+contains
+can see if contains a string,
+function is contains(string x, string y)
+and returns if x contains y
+ex. contains("hi", 'l') WILL NOT work because 'l' is a char
+    contains("hi", "l") does work because "l" is a string (returns true)
+ex2. contain("I love dogs", "dogs") returns true

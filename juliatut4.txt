@@ -1,0 +1,17 @@
+This comes from Juan Klopper's youtube tutorials
+Creating your own types
+Who doesn't want to create your own types
+1. First you can define an abstract type using the keyword abstract
+  ex. abstract dog
+2. Or you can define it as a certian type (under specific supertypes)
+  ex. Define another type as the type Number
+  ex. abstract dog2 <: Number
+3. Can create concrete types
+  ex. ConcreteDog <: dog (is of type dog)
+        name::String
+        collarId::Int (specifies the type)
+      end
+4. Can instatntiate
+  ex. Woofer = ConcreteDog("Heavy", 4321)
+5. Can access these fields with dot notation
+  ex. Woofer.name will return "Heavy"
