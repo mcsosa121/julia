@@ -1,0 +1,127 @@
+julia tutorial
+
+addition is +
+subraction is -
+division is /
+multiplication is *
+power is x^y (ie x to the y power)
+
+Has type inference which means you can define variables without their types
+ie. x = 5 (x is an int)
+can get the typeof x with the command typeof(x)
+
+bits(x)
+- returns the bit represnetation of a number
+
+x & y
+bitwise and
+x | y
+bitwise or
+x $ 4
+bitwise xor
+
+x >> y
+x << y
+bitwise shift
+
+typemax(int64)
+typemin(int64)
+returns the min number that can be returned
+
+can write expressions
+2x^2 - 3x + 1
+
+can do imaginary numbers
+x = 3 + 4im
+can get the real part with
+real(x)
+and imag part with
+imag(x)
+
+angle of imaginary numbers in complex plane
+angle(x)
+
+absolute value of complex number
+abs(x)
+go to docs.julialang.org for all functions
+
+can also do
+2(3+4im)
+(3+4im) + (4+ 5im)
+(1+2im)*(3+4im)
+(1+2im)/(3+4im)
+(2+6im)^2
+
+want to create a complex number
+a = 4
+b = 5
+complex(a,b)
+
+Rational numbers
+written as x//y
+typeof(y) = Rational{int64}
+can get numerator with num(x)
+can get denominator with den(x)
+will auto simplify
+ex. 2//3 == 4//6 returns true
+even typing 4//6 in the julia console will auto simplify
+
+convert from rational to float
+float(x//y)
+
+Strings
+'A' is a char
+You can also enter unicode charicters by \+'name of code'
+ex "\ + sigma" -> σ
+ex. "\ + u0958" -> becomes a hindi char if you have the unicode support
+ex. "\ + heartsuit" -> ♡
+
+each char has a specific ASCII number
+ex. Int('A') -> 65
+ex. Char(65) -> 'A'
+can also do comparisons 'A' <'B' -> true and the opposite 'A'>'B' -> false
+
+strings are stored as a sequence of chars
+text="ice cream"
+text[1]
+NOTE STRING INDEXES IN JULIA START FROM 1 NOT 0
+you can also do
+text[end] which returns the last element
+ex. text[end-1] = 'a'
+
+substrings
+specify beginning and end
+text[1:3] returns elements 1 through 3 which is "ice"
+ex. text[4:end] = " cream"
+
+concatinating
+If you want to concatinate strings
+string("First", "Second") -> "FirstSecond"
+if A and B are strings, A+B will NOT work unlike in python
+ex. x = "hello"
+    y = "world"
+    string(string(x," "),y)
+
+    evaluates to "hello world"
+
+*Julia supports perl style interpolation into string literals if you know what
+that is
+ex. a = "hey"
+    b = "you!"
+    c = "$a $b"
+
+    c evalauates to "Hey you!"
+ex2. d = 5
+     c = "$a $d"
+
+     c evaluates to "Hey 5"
+
+you can also do this with Arrays!
+ex 3. e = [1,2,3] * so e is an array containing 1, 2, and 3
+      c = "$a $e"
+
+      c evaluates to "Hey [1,2,3]"
+
+Searching within strings
+search ("AB...Z", 'C') -> 3 since 'C' is the third char in the string
+can also search for substrings
