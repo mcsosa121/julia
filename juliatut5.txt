@@ -58,6 +58,15 @@ ex. Array{Int64,1} == Vector{Int64} returns true
 ex. Array{Int64, 2} == Matrix{Int64} returns true
 
 Matrices are mxn in dimension
+Matrices are stored in column major notation.
+That means a matrix created as [1 2; 3 4]
+will be stored as
+1
+3
+2
+4
+or as stacked columns
+(For more performance tips visit http://docs.julialang.org/en/release-0.4/manual/performance-tips/)
 Matrices are creating using the following notations
 name = [el11 el12 ... elm1n; el21 ... el2n; ..... ; elm1 elm2 ... elmn   ]
 ex. [2 -4 8.2; -5.5 3.5 63] creates the 2 × 3 matrix
